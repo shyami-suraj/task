@@ -8,11 +8,16 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "intersection-observer": "^0.12.2",
+    "load-css-file": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.22.2",
     "react-scripts": "5.0.1",
+    "react-simple-star-rating": "^5.1.7",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
