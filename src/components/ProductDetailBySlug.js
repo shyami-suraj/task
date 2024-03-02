@@ -8,6 +8,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
+import Swal from 'sweetalert2'; 
 
 const Acard = styled.div`
   display: flex;
@@ -86,6 +87,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
   width: 50%;
 `;
+
 const Button = styled.button`
   margin:10px;
   width:150px;
@@ -100,6 +102,23 @@ const Button = styled.button`
   
 `;
 
+const addToCart = () => {
+  Swal.fire({
+    title: 'Success!',
+    text: 'Product added to cart successfully!',
+    icon: 'success',
+    confirmButtonText: 'Okey!!',
+  });
+};
+
+const addToWishlist = () => {
+  Swal.fire({
+    title: 'Success!',
+    text: 'Product added to wishlist successfully!',
+    icon: 'success',
+    confirmButtonText: 'Okey!!',
+  });
+};
 const ProductDetailBySlug = ({ location }) => {
   const [product, setProduct] = useState(null);
   const [slideIndex, setSlideIndex] = useState(1);
@@ -204,9 +223,8 @@ const ProductDetailBySlug = ({ location }) => {
             <div className="price">Price: Rs.{product.price}</div>
 
             <div><b>Brand:</b> {product.brand.name}</div>
-            <Button style={{ marginTop: "10px", backgroundColor:'black',color:'white'}}><FontAwesomeIcon icon={faShoppingCart} style={{ color: "#fff" }} /> Add to Cart</Button>
-            <Button style={{ marginTop: "10px",backgroundColor:'lightgray' }}><FontAwesomeIcon icon={faHeart} /> Add to Wishlist</Button>
-          </div>
+            <Button onClick={addToCart} style={{ marginTop: "10px", backgroundColor:'black',color:'white'}}><FontAwesomeIcon icon={faShoppingCart} style={{ color: "#fff" }} /> Add to Cart</Button>
+<Button onClick={addToWishlist} style={{ marginTop: "10px",backgroundColor:'lightgray' }}><FontAwesomeIcon icon={faHeart} /> Add to Wishlist</Button>          </div>
               </RightContainer>
       </MainContainer>
     </Acard>
