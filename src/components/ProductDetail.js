@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import {Rating} from 'react-simple-star-rating';
+import { Rating } from 'react-simple-star-rating';
 
 const Acard = styled.div`
   display: flex;
@@ -61,8 +61,8 @@ const StyledLink = styled(Link)`
 `;
 
 const ProductDetail = ({ product }) => {
-  const url =`/products/${product.slug}`
-  const linkObj = { pathname: url, state: { slug: product.slug} }
+  const url = `/products/${product.slug}`
+  const linkObj = { pathname: url, state: { slug: product.slug } }
 
   return (
     <Acard >
@@ -79,16 +79,16 @@ const ProductDetail = ({ product }) => {
             </p>
           )}
           <p>Price: Rs.{product.price}</p>
-          
-          
+
+
           <p>
-          <Rating
-            readonly={true}
-            initialValue={product.ratings}
-            size={24}
-            strokeWidth={2}
-            strokeColor="#ff9800"
-          />({product.totalRatings})</p>
+            <Rating
+              readonly={true}
+              initialValue={product.ratings}
+              size={24}
+              strokeWidth={2}
+              strokeColor="#ff9800"
+            />({product.totalRatings})</p>
           <p>Brand: {product.brand.name}</p>
         </div>
       </StyledLink>

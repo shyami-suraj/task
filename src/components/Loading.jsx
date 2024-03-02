@@ -25,12 +25,12 @@ const LoadingSpinner = styled.div`
 `;
 
 const Loading = () => {
-  return (
-    <LoadingContainer>
-      <LoadingSpinner />
-      <h1>Loading...</h1>
-    </LoadingContainer>
-  );
+    return (
+        <LoadingContainer>
+            <LoadingSpinner />
+            <h1>Loading...</h1>
+        </LoadingContainer>
+    );
 };
 
 export default Loading;

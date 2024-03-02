@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
+    "html-react-parser": "^5.1.8",
     "intersection-observer": "^0.12.2",
     "load-css-file": "^1.0.0",
     "react": "^18.2.0",

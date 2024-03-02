@@ -46,7 +46,7 @@ const ProductList = () => {
         dataLength={data.length}
         next={fetchData}
         hasMore={hasMore}
-        loader={<Loading/>}
+        loader={<Loading />}
         endMessage={
           <p style={{ textAlign: 'center' }}>
             <b>"There is no more data"</b>

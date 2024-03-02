@@ -8,8 +8,8 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Loading from './Loading';
-import Swal from 'sweetalert2'; 
-
+import Swal from 'sweetalert2';
+import parse from 'html-react-parser';
 const Acard = styled.div`
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@ const ProductDetailBySlug = ({ location }) => {
   }, [slug]);
 
   if (!product) {
-    return <div><Loading/></div>;
+    return <div><Loading /></div>;
   }
 
   return (
@@ -169,13 +169,13 @@ const ProductDetailBySlug = ({ location }) => {
                 className={`mySlides ${index === slideIndex - 1 ? 'w3-opacity-off' : ''}`}
                 src={image}
                 style={{
-                 
-                  width:'750px',
+
+                  width: '750px',
                   height: '400px',
                   borderRadius: '10px',
                   // backgroundColor:'red',
-                  padding:3,
-                 
+                  padding: 3,
+
                   display: index === slideIndex - 1 ? 'block' : 'none'
                 }}
                 alt=""
@@ -190,7 +190,7 @@ const ProductDetailBySlug = ({ location }) => {
                 >
                   <img
                     src={image}
-                    style={{ width: '100%', height: '100px',padding:'3px', cursor: 'pointer' }}
+                    style={{ width: '100%', height: '100px', padding: '3px', cursor: 'pointer' }}
                     onClick={() => currentDiv(index + 1)}
                   />
                 </div>
@@ -201,7 +201,7 @@ const ProductDetailBySlug = ({ location }) => {
         <RightContainer>
           <div>
             <h1><b>{product.title}</b></h1>
-            <div className="description"><b>Description:</b>{product.description}</div>
+            <div className="description"><b>Description:</b>{parse(product.description)}</div>
             <div className="rating">
               <Rating
                 readonly={true}
@@ -212,20 +212,20 @@ const ProductDetailBySlug = ({ location }) => {
               />({product.totalRatings})
             </div>
             {product.offPercent > 0 && (
-            <p>
-              <span style={{ textDecoration: "line-through" }}>
-                Rs.{product.strikePrice}
-              </span>{" "}
-              ({product.offPercent}% off)
-            </p>
-          )}
-          
+              <p>
+                <span style={{ textDecoration: "line-through" }}>
+                  Rs.{product.strikePrice}
+                </span>{" "}
+                ({product.offPercent}% off)
+              </p>
+            )}
+
             <div className="price">Price: Rs.{product.price}</div>
 
             <div><b>Brand:</b> {product.brand.name}</div>
-            <Button onClick={addToCart} style={{ marginTop: "10px", backgroundColor:'black',color:'white'}}><FontAwesomeIcon icon={faShoppingCart} style={{ color: "#fff" }} /> Add to Cart</Button>
-<Button onClick={addToWishlist} style={{ marginTop: "10px",backgroundColor:'lightgray' }}><FontAwesomeIcon icon={faHeart} /> Add to Wishlist</Button>          </div>
-              </RightContainer>
+            <Button onClick={addToCart} style={{ marginTop: "10px", backgroundColor: 'black', color: 'white' }}><FontAwesomeIcon icon={faShoppingCart} style={{ color: "#fff" }} /> Add to Cart</Button>
+            <Button onClick={addToWishlist} style={{ marginTop: "10px", backgroundColor: 'lightgray' }}><FontAwesomeIcon icon={faHeart} /> Add to Wishlist</Button>          </div>
+        </RightContainer>
       </MainContainer>
     </Acard>
   );
