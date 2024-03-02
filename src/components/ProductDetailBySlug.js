@@ -7,6 +7,7 @@ import Cssloder from './Cssloder';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Loading from './Loading';
 
 const Acard = styled.div`
   display: flex;
@@ -134,7 +135,7 @@ const ProductDetailBySlug = ({ location }) => {
   }, [slug]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div><Loading/></div>;
   }
 
   return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductDetail from './ProductDetail';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import styled from 'styled-components';
+import Loading from './Loading';
 
 
 const Gridcontainer = styled.div`
@@ -45,7 +46,7 @@ const ProductList = () => {
         dataLength={data.length}
         next={fetchData}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<Loading/>}
         endMessage={
           <p style={{ textAlign: 'center' }}>
             <b>"There is no more data"</b>
